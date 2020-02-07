@@ -18,14 +18,14 @@ let colorGeneration = () => {
 let copyGradientStyle = (el) => {
     let style = el.style.value
     style.select()
-    style.setSelectionRange(0, 99999); 
-    style.execCommand("copy"); 
+    style.setSelectionRange(0, 99999);
+    style.execCommand("copy");
 }
 
-var __gradgen = document.querySelectorAll(".gradgen") 
+var __gradgen = document.querySelectorAll(".gradgen")
 let createItem = (nb) => {
     for (let i = 0; i < nb; i++) {
-        __gradgen.forEach( el => {
+        __gradgen.forEach(el => {
             el.innerHTML += `<div class="gradgen-item"></div>`
         })
     }
@@ -33,28 +33,27 @@ let createItem = (nb) => {
 
 createItem(10)
 
-let copy = () => {
-    var copyText = document.querySelectorAll(".gradgen-values");
-    for (let i = 0; i < copyText.length; i++) {
-        copyText[i].select();
-        copyText[i].setSelectionRange(0, 99999)
-        console.log(copyText[i].select());
-    }
-    document.execCommand("copy");
-  }
-
 var __gradgenItem = document.querySelectorAll('.gradgen-item')
 __gradgenItem.forEach(el => {
     el.style.background = colorGeneration()
-    let backGradient = el.style.background 
+    let backGradient = el.style.background
     el.innerHTML += `<div class="gradgen-value-container">
     <input class="gradgen-values"  type="text" value="${el.style.background}"/>
-    <i onclick='copy()' class="fa fa-clipboard" aria-hidden="true"></i>
+    <button class="fa fa-clipboard" aria-hidden="true"></button>
     </div>`
 })
 
 
-// var __gradgen_copy_button = document.querySelectorAll('.gradgen-copy-button')
-// __gradgen_copy_button.forEach(el => {
-//     el.style.background = colorGeneration()
-// })
+let itemToClick = () => {
+    let button = document.querySelectorAll('.fa-clipboard')
+    let item = document.querySelectorAll('.gradgen-values')
+    for (let i = 0; i < button.length; i++) {
+        button[i].onclick = () => {
+            item[i].select();
+            item[i].setSelectionRange(0, 99999)
+            document.execCommand("copy");
+        }
+    }
+}
+
+itemToClick()
