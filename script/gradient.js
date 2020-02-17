@@ -39,7 +39,7 @@ __gradgenItem.forEach(el => {
     let backGradient = el.style.background
     el.innerHTML += `<div class="gradgen-value-container">
     <input class="gradgen-values"  type="text" value="${el.style.background}"/>
-    <button class="fa fa-clipboard" aria-hidden="true"></button>
+    <i class="fa fa-clipboard" aria-hidden="true"></i>
     </div>`
 })
 
@@ -56,4 +56,4 @@ let itemToClick = () => {
     }
 }
 
-itemToClick()
+itemToClick();

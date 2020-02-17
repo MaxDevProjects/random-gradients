@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
     width: 100%;
     height: 100%;
     margin: 0;
@@ -8,29 +9,29 @@ html, body {
 .gradgen {
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     flex-wrap: wrap;
 }
 
-.gradgen-item
-{
+.gradgen-item {
     width: calc(100% / 4);
     height: calc(100vh / 2);
 }
 
-.gradgen-value-container{
+.gradgen-value-container {
     display: flex;
     width: 100%;
 }
 
-.gradgen-values{
+.gradgen-values {
     width: 100%;
     background: none;
     border: none;
+    padding: 4px 0;
 }
 
 .inpt:focus {
-outline-offset: 0;
+    outline-offset: 0;
 }
 
 .fa-clipboard {
@@ -39,6 +40,10 @@ outline-offset: 0;
     align-items: center;
     color: black;
     padding: 2px;
+}
+
+.form {
+    padding: 8px;
 }
 
 /* .gradgen-copy-button {
@@ -61,3 +66,10 @@ outline-offset: 0;
     background-color: whitesmoke;
     color: black;
 } */
+
+@media screen and (max-width:768px) {
+    .gradgen-item {
+        width: calc(100% / 2);
+        height: calc(100vh / 3);
+    }
+}
