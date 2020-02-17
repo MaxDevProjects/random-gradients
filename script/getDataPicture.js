@@ -31,10 +31,7 @@ window.onload = function () {
             // console.log(rgba);
         }
         let s = 0;
-        let i = 0;
-        i += 1;
-        while (colorsArr[s] === colorsArr[i]) {
-            for (i = 0; i < colorsArr.length; i++) {
+            for (let i = 0; i < colorsArr.length; i++) {
                 const element = colorsArr[i];
                 s = i + 1
                 if (colorsArr[s] === colorsArr[i]) {
